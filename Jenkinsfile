@@ -1,10 +1,5 @@
 pipeline {
     agent any
-
-    tools {
-        sonarRunner 'SonarScanner'
-    }
-
     environment {
         DOCKER_IMAGE = "busapooja/instagram-ui"
         SONARQUBE_SERVER = "SonarQube"
