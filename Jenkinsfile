@@ -9,11 +9,16 @@ pipeline {
     stages {
 
         stage('Git Checkout') {
-            steps {
-                git branch: 'main',
-                     url: git 'https://github.com/PoojaBusa09/instagram-devops-project.git'   
-            }
-        }
+    steps {
+        checkout([
+            $class: 'GitSCM',
+            branches: [[name: '*/main']],
+            userRemoteConfigs: [[
+                url: 'https://github.com/PoojaBusa09/instagram-devops-project.git'
+            ]]
+        ])
+    }
+}
 
         stage('Install Dependencies') {
             steps {
