@@ -20,22 +20,6 @@ pipeline {
     }
 }
 
-       stage('Install Dependencies') {
-    steps {
-        dir('instagram-devops-project') {
-            sh 'npm install'
-        }
-    }
-}
-
-stage('Build React App') {
-    steps {
-        dir('instagram-devops-project') {
-            sh 'npm run build'
-        }
-    }
-}
-
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv("${SONARQUBE_SERVER}") {
