@@ -11,10 +11,7 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 git branch: 'main',
-                     url: git 'https://github.com/PoojaBusa09/instagram-devops-project.git'
-                    credentialsId: 'github-creds'
-
-               
+                     url: git 'https://github.com/PoojaBusa09/instagram-devops-project.git'   
             }
         }
 
