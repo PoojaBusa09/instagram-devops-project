@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: instagram-ui
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: instagram-ui
+  template:
+    metadata:
+      labels:
+        app: instagram-ui
+    spec:
+      containers:
+      - name: instagram-ui
+        image: busapooja/instagram-ui:latest
+        ports:
+        - containerPort: 80
