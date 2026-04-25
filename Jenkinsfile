@@ -20,17 +20,21 @@ pipeline {
     }
 }
 
-        stage('Install Dependencies') {
-            steps {
-                sh 'npm install'
-            }
+       stage('Install Dependencies') {
+    steps {
+        dir('instagram-devops-project') {
+            sh 'npm install'
         }
+    }
+}
 
-        stage('Build React App') {
-            steps {
-                sh 'npm run build'
-            }
+stage('Build React App') {
+    steps {
+        dir('instagram-devops-project') {
+            sh 'npm run build'
         }
+    }
+}
 
         stage('SonarQube Analysis') {
             steps {
