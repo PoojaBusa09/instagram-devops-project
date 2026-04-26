@@ -3,7 +3,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = "busapooja/instagram-ui"
         SONARQUBE_SERVER = "SonarQube"
-        NEXUS_URL = "192.168.0.20:8082"
+     //   NEXUS_URL = "192.168.0.20:8082"
     }
 
     stages {
