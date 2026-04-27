@@ -1,24 +1,29 @@
 pipeline {
     agent any
+
+    tools {
+        sonarScanner 'SonarScanner'   
+    }
+
     environment {
         DOCKER_IMAGE = "busapooja/instagram-ui"
         SONARQUBE_SERVER = "SonarQube"
-     //   NEXUS_URL = "192.168.0.20:8082"
+        NEXUS_URL = "192.168.0.20:8082"   
     }
 
     stages {
 
         stage('Git Checkout') {
-    steps {
-        checkout([
-            $class: 'GitSCM',
-            branches: [[name: '*/main']],
-            userRemoteConfigs: [[
-                url: 'https://github.com/PoojaBusa09/instagram-devops-project.git'
-            ]]
-        ])
-    }
-}
+            steps {
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/PoojaBusa09/instagram-devops-project.git'
+                    ]]
+                ])
+            }
+        }
 
         stage('SonarQube Analysis') {
             steps {
