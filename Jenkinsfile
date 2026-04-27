@@ -1,14 +1,10 @@
 pipeline {
     agent any
 
-    tools {
-        sonarScanner 'SonarScanner'   
-    }
-
     environment {
         DOCKER_IMAGE = "busapooja/instagram-ui"
         SONARQUBE_SERVER = "SonarQube"
-        NEXUS_URL = "192.168.0.20:8082"   
+        NEXUS_URL = "192.168.0.20:8082"
     }
 
     stages {
@@ -29,7 +25,7 @@ pipeline {
             steps {
                 withSonarQubeEnv("${SONARQUBE_SERVER}") {
                     sh '''
-                    sonar-scanner \
+                    /opt/sonar-scanner/bin/sonar-scanner \
                     -Dsonar.projectKey=instagram-devops-project \
                     -Dsonar.projectName=instagram-devops-project \
                     -Dsonar.sources=.
