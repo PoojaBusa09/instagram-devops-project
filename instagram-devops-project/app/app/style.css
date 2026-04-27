@@ -1,21 +1,55 @@
-body {
-    font-family: Arial;
+/* Reset */
+* {
     margin: 0;
-    background: #fafafa;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+}
+
+/* Navbar */
 .navbar {
-    background: #fff;
+    background-color: white;
     padding: 15px;
-    font-size: 20px;
     text-align: center;
-    border-bottom: 1px solid #ddd;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 1px solid #dbdbdb;
+    position: sticky;
+    top: 0;
 }
 
+/* Main container */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Post Card */
 .post {
     width: 400px;
-    margin: 30px auto;
     background: white;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+/* Image */
+.post img {
+    width: 100%;
+    height: auto;
+}
+
+/* Content */
+.post-content {
     padding: 10px;
-    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 16px;
 }
